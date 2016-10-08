@@ -1,0 +1,43 @@
+# To run dropwizard in daemon mode use
+# nohup java -jar target/{artifact-id}-{version}.jar server config.yml > dropwizard.out 2> dropwizard.err < /dev/null &
+
+server:
+  applicationConnectors:
+  - type: http
+    port: 8080
+  adminConnectors:
+  - type: http
+    port: 8081
+  requestLog:
+    timeZone: UTC
+    appenders:
+      - type: file
+        currentLogFilename: logs/dw_requests.log
+        threshold: ALL
+        archive: true
+        archivedLogFilenamePattern: dw_requests.%d.log.gz
+        archivedFileCount: 7
+      - type: console
+        threshold: ALL
+        
+database:
+  driverClass: org.h2.Driver
+  user: userStandard
+  password: password
+  url: jdbc:h2:mem:todo
+
+databaseType: h2
+
+logging:
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: logs/dw_log_events.log
+      threshold: ALL
+      archive: true
+      archivedLogFilenamePattern: dw_log_events.%d.log.gz
+      archivedFileCount: 7
+    - type: console
+      threshold: ALL
+      
+      

@@ -1,0 +1,30 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>${groupId}</groupId>
+        <artifactId>${artifactId}</artifactId>
+        <packaging>jar</packaging>
+	<version>${version}</version>
+	<url>http://maven.apache.org</url>
+        <parent>
+                <groupId>com.ebuilder.microservices.dw-swagger-elk.core-pom</groupId>
+                <artifactId>dw-swagger-elk-core-pom</artifactId>
+                <version>1.0.0</version>
+                <relativePath>./src/main/resources/core-pom/pom.xml</relativePath>
+        </parent>
+        <distributionManagement>
+		<repository>
+			<id>eb-microservices</id>
+			<url>http://repository.microservices.ebuilder.io/nexus/content/repositories/eb-microservices/</url>
+		</repository>
+	</distributionManagement>
+	<properties>
+		<dropwizard.main.launcher.class>com.ebuilder.microservices.contactservice.dw.EBuilderMicroServiceMainApp</dropwizard.main.launcher.class> 
+	</properties>
+</project>
+
+
+
+
+
+
